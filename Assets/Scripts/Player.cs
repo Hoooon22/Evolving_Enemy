@@ -6,10 +6,13 @@ public class Player : MonoBehaviour
 {
     int playerSpeed = 100; // player speed
     Rigidbody2D rigid;
+    SpriteRenderer rend;
     
     void Start()
     {
-        rigid = GetComponent<Rigidbody2D>(); // init
+        // init
+        rigid = GetComponent<Rigidbody2D>();
+        rend = GetComponent<SpriteRenderer>();
     }
 
     void FixedUpdate()
@@ -21,10 +24,12 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.RightArrow)) // RightArrow
         {
+            rend.flipX = false;
             rigid.AddForce(new Vector2(playerSpeed, 0), ForceMode2D.Force);
         }
         if (Input.GetKey(KeyCode.LeftArrow)) // LeftArrow
         {
+            rend.flipX = true;
             rigid.AddForce(new Vector2(-playerSpeed, 0), ForceMode2D.Force);
         }
     }
