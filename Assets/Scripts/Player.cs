@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    float playerSpeed = 10; // player speed
+    int playerSpeed = 100; // player speed
     Rigidbody2D rigid;
     
     void Start()
@@ -12,9 +12,9 @@ public class Player : MonoBehaviour
         rigid = GetComponent<Rigidbody2D>(); // init
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        
+        PlayerMove();
     }
 
     void PlayerMove()
