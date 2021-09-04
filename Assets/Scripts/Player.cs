@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    float maxSpeed = 10; // player speed
+
     Rigidbody2D rigid;
     
     void Start()
@@ -11,9 +13,9 @@ public class Player : MonoBehaviour
         rigid = GetComponent<Rigidbody2D>(); // init
     }
 
+
     void Update()
     {
-        float h = Input.GetAxisRaw("Horizontal");
-        rigid.AddForce(Vector2.right * h, ForceMode2D.Impulse);
+        
     }
 }
