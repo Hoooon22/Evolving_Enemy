@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    float maxSpeed = 10; // player speed
-
+    float playerSpeed = 10; // player speed
     Rigidbody2D rigid;
     
     void Start()
@@ -13,9 +12,20 @@ public class Player : MonoBehaviour
         rigid = GetComponent<Rigidbody2D>(); // init
     }
 
-
     void Update()
     {
         
+    }
+
+    void PlayerMove()
+    {
+        if (Input.GetKey(KeyCode.RightArrow)) // RightArrow
+        {
+            rigid.AddForce(new Vector2(playerSpeed, 0), ForceMode2D.Force);
+        }
+        if (Input.GetKey(KeyCode.LeftArrow)) // LeftArrow
+        {
+            rigid.AddForce(new Vector2(-playerSpeed, 0), ForceMode2D.Force);
+        }
     }
 }
