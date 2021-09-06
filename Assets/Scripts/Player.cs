@@ -32,5 +32,9 @@ public class Player : MonoBehaviour
             rend.flipX = true;
             rigid.AddForce(new Vector2(-playerSpeed, 0), ForceMode2D.Force);
         }
+        if (Input.GetKey(KeyCode.UpArrow)) // Jump
+        {
+            rigid.AddForce(new Vector2(0, playerSpeed), ForceMode2D.Force);
+        }
     }
 }
