@@ -35,7 +35,6 @@ public class Player : MonoBehaviour
         if (Input.GetKey(KeyCode.UpArrow)) // Jump
         {
             rigid.AddForce(new Vector2(0, playerSpeed), ForceMode2D.Force);
-
         }
     }
 }
