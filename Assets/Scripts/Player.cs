@@ -18,6 +18,7 @@ public class Player : MonoBehaviour
     void FixedUpdate()
     {
         PlayerMove();
+
     }
 
     void PlayerMove()
