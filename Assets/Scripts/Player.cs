@@ -4,20 +4,17 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    int playerSpeed; // player speed
-    int PlayerJumpPower; // player jump power
-    bool m_bJumping = false;
+    int playerSpeed = 100; // player speed
+    int PlayerJumpPower = 10; // player jump power
 
     Rigidbody2D rigid;
     SpriteRenderer rend;
-    GameObject obj;
     
     void Start()
     {
         // init
         rigid = GetComponent<Rigidbody2D>();
         rend = GetComponent<SpriteRenderer>();
-        obj = GetComponent<GameObject>();
     }
 
     void FixedUpdate()
@@ -37,7 +34,7 @@ public class Player : MonoBehaviour
             rend.flipX = true;
             rigid.AddForce(new Vector2(-playerSpeed, 0), ForceMode2D.Force);
         }
-        if (Input.GetKey(KeyCode.UpArrow) && obj.CompareTag("Plane")) // Jump
+        if (Input.GetKey(KeyCode.UpArrow)) // Jump
         {
             rigid.AddForce(new Vector2(0, PlayerJumpPower), ForceMode2D.Impulse);
         }
