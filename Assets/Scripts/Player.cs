@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
 {
     int playerSpeed = 100; // player speed
     int PlayerJumpPower = 10; // player jump power
+    int jumpCount = 1; // jump count
 
     Rigidbody2D rigid;
     SpriteRenderer rend;
@@ -20,7 +21,7 @@ public class Player : MonoBehaviour
     void FixedUpdate()
     {
         PlayerMove();
-
+        PlayerJump();
     }
 
     void PlayerMove()
@@ -35,9 +36,14 @@ public class Player : MonoBehaviour
             rend.flipX = true;
             rigid.AddForce(new Vector2(-playerSpeed, 0), ForceMode2D.Force);
         }
-        if (Input.GetKey(KeyCode.UpArrow)) // Jump
+    }
+    
+    void PlayerJump()
+    {
+        if (jumpCount > 0 && Input.GetKey(KeyCode.UpArrow)) // Jump
         {
             rigid.AddForce(new Vector2(0, PlayerJumpPower), ForceMode2D.Impulse);
+            jumpCount--;
         }
     }
 }
