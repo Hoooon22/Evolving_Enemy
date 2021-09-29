@@ -5,7 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     int playerSpeed = 100; // player speed
-    int PlayerJumpPower = 10; // player jump power
+    int PlayerJumpPower = 50; // player jump power
     int jumpCount = 1; // jump count
 
     Rigidbody2D rigid;
@@ -44,6 +44,14 @@ public class Player : MonoBehaviour
         {
             rigid.AddForce(new Vector2(0, PlayerJumpPower), ForceMode2D.Impulse);
             jumpCount--;
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Ground")
+        {
+            jumpCount = 1;
         }
     }
 }
