@@ -4,15 +4,46 @@ using UnityEngine;
 
 public class Monster : MonoBehaviour
 {
-    // Start is called before the first frame update
+    int monsterSpeed = 100; 
+
+    Rigidbody2D rigid;
+    SpriteRenderer rend;
+    GameObject player;
+    Vector2 pos;
+
     void Start()
+    {
+        // init
+        rigid = GetComponent<Rigidbody2D>();
+        rend = GetComponent<SpriteRenderer>();
+        player = GameObject.FindGameObjectWithTag("Player");
+
+        pos = this.gameObject.transform.position;
+    }
+
+    void FixedUpdate()
+    {
+        MonsterMove();
+    }
+
+    void Update()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
+    void MonsterMove()
     {
-        
+        if (pos.x == player.transform.position.x)
+        {
+            rigid.AddForce(new Vector2(0, 0), ForceMode2D.Force);
+        }
+        else if (pos.x > player.transform.position.x)
+        {
+            rigid.AddForce(new Vector2(-monsterSpeed, 0), ForceMode2D.Force);
+        }
+        else if (pos.x < player.transform.position.x)
+        {
+            rigid.AddForce(new Vector2(monsterSpeed, 0), ForceMode2D.Force);
+        }
     }
 }
