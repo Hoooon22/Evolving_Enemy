@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Monster : MonoBehaviour
 {
-    int monsterSpeed = 70; 
-
     Rigidbody2D rigid;
     SpriteRenderer rend;
     GameObject player;
