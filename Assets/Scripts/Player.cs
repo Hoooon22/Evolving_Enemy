@@ -5,7 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     int playerSpeed = 100; // player speed
-    int PlayerJumpPower = 50; // player jump power
+    int PlayerJumpPower = 80; // player jump power
     int jumpCount = 1; // jump count
 
     Rigidbody2D rigid;
