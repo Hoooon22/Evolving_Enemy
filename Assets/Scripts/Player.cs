@@ -14,7 +14,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         // init
-        rigid = GetComponent<Rigidbody2D>();
+        rigid = GetComponent<Rigidbody2D>(); 
         rend = GetComponent<SpriteRenderer>();
     }
 
